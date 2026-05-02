@@ -688,13 +688,22 @@
     border-top: 1px solid var(--color-line);
   }
   .voice__avatar {
-    width: 40px; height: 40px;
+    width: 44px; height: 44px;
     border-radius: 50%;
-    overflow: hidden;
-    background: var(--color-beige);
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    box-shadow: var(--shadow-soft);
   }
-  .voice__avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .voice__avatar--y { background: linear-gradient(135deg, #E8C9A8 0%, #C99A6B 100%); }
+  .voice__avatar--k { background: linear-gradient(135deg, #D9BFA7 0%, #B07F4F 100%); }
+  .voice__avatar--m { background: linear-gradient(135deg, #EBD8C2 0%, #C99A6B 100%); }
   .voice__profile-text {
     font-size: 12px;
     color: var(--color-text-mute);
@@ -1113,9 +1122,11 @@
     <div class="hero__visual">
       <div class="hero__image">
         <img
-          src="https://images.unsplash.com/photo-1611601322175-ef8ec8c85f01?auto=format&fit=crop&w=1200&q=80"
-          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80';"
-          alt="柔らかな日差しの中で微笑む女性"
+          src="https://images.pexels.com/photos/8062965/pexels-photo-8062965.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1500&fit=crop"
+          data-fallback-1="https://images.pexels.com/photos/4350177/pexels-photo-4350177.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1500&fit=crop"
+          data-fallback-2="https://images.pexels.com/photos/7760243/pexels-photo-7760243.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1500&fit=crop"
+          onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.dataset.fallback1;}else if(this.dataset.f==='1'){this.dataset.f=2;this.src=this.dataset.fallback2;}else{this.onerror=null;}"
+          alt="柔らかな日差しの中、ベージュのニットを着てくつろぐ女性"
           loading="eager">
       </div>
     </div>
@@ -1371,7 +1382,7 @@
 
       <div class="counselor">
         <div class="counselor__photo">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="相談員 さくら">
+          <img src="https://images.pexels.com/photos/4350177/pexels-photo-4350177.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="相談員 さくら">
         </div>
         <h3 class="counselor__name">さくら</h3>
         <div class="counselor__role">CLINICAL PSYCHOLOGIST</div>
@@ -1388,7 +1399,7 @@
 
       <div class="counselor">
         <div class="counselor__photo">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80" alt="相談員 みお">
+          <img src="https://images.pexels.com/photos/7120881/pexels-photo-7120881.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="相談員 みお">
         </div>
         <h3 class="counselor__name">みお</h3>
         <div class="counselor__role">CAREER COUNSELOR</div>
@@ -1404,7 +1415,7 @@
 
       <div class="counselor">
         <div class="counselor__photo">
-          <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80" alt="相談員 あかり">
+          <img src="https://images.pexels.com/photos/7760243/pexels-photo-7760243.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="相談員 あかり">
         </div>
         <h3 class="counselor__name">あかり</h3>
         <div class="counselor__role">FAMILY COUNSELOR</div>
@@ -1475,9 +1486,7 @@
           ずっとひとりで抱えていた悩みを、初めて言葉にできました。否定せずに聴いてくださり、それだけで涙が止まらなかったです。本当に感謝しています。
         </p>
         <div class="voice__profile">
-          <div class="voice__avatar">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="">
-          </div>
+          <div class="voice__avatar voice__avatar--y" aria-hidden="true">Y</div>
           <div class="voice__profile-text">
             <strong>Yさん</strong>30代女性 / 会社員
           </div>
@@ -1492,9 +1501,7 @@
           キャリアの方向性に迷っていた時に、相談員さんが私の言葉を引き出してくれました。アドバイスではなく、自分で答えに気づける時間でした。
         </p>
         <div class="voice__profile">
-          <div class="voice__avatar">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="">
-          </div>
+          <div class="voice__avatar voice__avatar--k" aria-hidden="true">K</div>
           <div class="voice__profile-text">
             <strong>Kさん</strong>40代男性 / フリーランス
           </div>
@@ -1509,9 +1516,7 @@
           眠れない夜に、つい連絡してしまいました。深夜にも関わらず、温かく対応してくださって。「ひとりじゃない」と感じられた瞬間でした。
         </p>
         <div class="voice__profile">
-          <div class="voice__avatar">
-            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=200&q=80" alt="">
-          </div>
+          <div class="voice__avatar voice__avatar--m" aria-hidden="true">M</div>
           <div class="voice__profile-text">
             <strong>Mさん</strong>20代女性 / 学生
           </div>
